@@ -7,10 +7,21 @@ A collection of quotes at a one place.
 * Category-wise quotes. <br/>
 * Dark/Light mode toggle. <br/>
 * Twitter Sharing option. <br/>
-* Seamless well-designed UI.
+* Well-designed UI.
 
 
-Star the repo ✨.
+
+## Techstack Used
+
+* React 
+* ChakraUI
+* React-router
+* React icons
+
+### Quotes API taken from [here](!https://github.com/lukePeavey/quotable)
+<br/>
+
+# Star the repo ✨
 
 
 
