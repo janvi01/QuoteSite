@@ -7,7 +7,6 @@ A collection of quotes at a one place.
 * Category-wise quotes. <br/>
 * Dark/Light mode toggle. <br/>
 * Twitter Sharing option. <br/>
-* Well-designed UI.
 
 
 
