@@ -1,0 +1,20 @@
+.home{
+    width: "100%";
+    height: max-content;
+    background: #ee9ca7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.homeothermode{
+    width: "100%";
+    height: max-content;
+    background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.navhover:hover{
+    border-bottom: solid 2px #2C5364 ;
+}
+.togglehover:hover{
+    border-bottom: solid 2px #ee9ca7 ;
+}

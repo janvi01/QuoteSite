@@ -1,4 +1,24 @@
-# Getting Started with Create React App
+# QuoteSite (QS) 🚀
+
+A collection of quotes at a one place.
+
+## Features 
+
+* Category-wise quotes. <br/>
+* Dark/Light mode toggle. <br/>
+* Twitter Sharing option. <br/>
+* Seamless well-designed UI.
+
+
+Star the repo ✨.
+
+
+
+
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
