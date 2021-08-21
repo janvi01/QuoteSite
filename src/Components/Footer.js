@@ -3,7 +3,6 @@ import React from 'react'
 import {ReactComponent as Endsvg1} from '../Assets/endsvg1.svg'
 import {ReactComponent as Endsvg2} from '../Assets/endsvg2.svg'
 
-
 function Footer() {
     const homebgtoggle = useColorModeValue("home", "homeothermode")
     return (
