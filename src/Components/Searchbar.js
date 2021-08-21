@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React /*{ useState }*/ from 'react'
 import { InputGroup, InputLeftElement, Input, } from '@chakra-ui/react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { ListData } from './ListData'
+//import { ListData } from './ListData'
 
 function Searchbar() {
-    const [searchterm, setsearchterm] = useState("");
+    //const [searchterm, setsearchterm] = useState("");
     return (
         <>
         <InputGroup mt={16} w={["70%", "60%", "50%"]}>
@@ -12,8 +12,8 @@ function Searchbar() {
                 pointerEvents="none"
                 children={< AiOutlineSearch />}
             />
-            <Input boxShadow="dark-lg" placeholder="Search Category" onChange={(e) => { setsearchterm(e.target.value) }} />
-            {
+            <Input boxShadow="dark-lg" placeholder="Search Category" /*onChange={(e) => { setsearchterm(e.target.value) }}*/ />
+            {/* {
                 ListData.filter((newlist) => {
                     if (searchterm === "")
                         return (<div>No such Category</div>)
@@ -23,7 +23,7 @@ function Searchbar() {
                     return
                     (<div key={key}>{newlist}</div>)
                 })
-            }
+            } */}
         </InputGroup>
         </>
     )
