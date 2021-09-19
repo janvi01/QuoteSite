@@ -1,4 +1,4 @@
-import { Box, HStack, Text, useColorModeValue } from '@chakra-ui/react'
+import { Box, HStack, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 
 function About() {
