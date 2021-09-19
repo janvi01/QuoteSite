@@ -7,9 +7,9 @@ function About() {
         <div className={homebgtoggle}>
             <HStack justify="center" p={8}>
                 <Box>
-                QuoteSite is a website where you can find list of quotes based on different categories.
+                    QuoteSite is a website where you can find list of quotes based on different categories.
                 </Box>
-                </HStack>
+            </HStack>
         </div>
     )
 }

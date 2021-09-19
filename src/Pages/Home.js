@@ -10,7 +10,7 @@ function Home() {
         <div className={homebgtoggle}>
             <VStack justify="center" >
                 <Front />
-                <Categorylist/>
+                <Categorylist />
             </VStack>
         </div>
     )

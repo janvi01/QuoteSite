@@ -25,7 +25,7 @@ function Categorylist() {
                     else if (val.main.toLowerCase().includes(searchterm.toLowerCase()))
                         return val
                     else
-                    return 0
+                        return 0
                 }).map((val, key) => {
                     return <Box boxSize="200px" m={16} key={key} bgImage={val.imageurl} shadow="dark-lg" textAlign="center">
                         <Link to={`/singlequote/${val.category}`}><Button mt="70%" variant="solid" size="md" colorScheme="gray" fontWeight="bold" letterSpacing="wider">{val.main}</Button></Link></Box>
