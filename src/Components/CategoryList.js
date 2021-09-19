@@ -1,20 +1,38 @@
-import { Box, Button, Flex, Heading } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
+import { InputGroup, InputLeftElement, Input, Button, Flex, Box, Heading } from '@chakra-ui/react'
+import { AiOutlineSearch } from 'react-icons/ai'
 import { ListData } from './ListData'
 import { Link } from 'react-router-dom'
 
-function CategoryList() {
+function Categorylist() {
+    const [searchterm, setsearchterm] = useState("");
     return (
-        <div>
-            <Heading as="h1" textAlign="center">Categories</Heading>
+        <>
+            <Heading as="h1" pb={4} textAlign="center">Categories</Heading >
+            {/* Searchbar */}
+            <InputGroup mt={16} w={["70%", "60%", "50%"]}>
+                <InputLeftElement
+                    pointerEvents="none"
+                    children={< AiOutlineSearch />}
+                />
+                <Input boxShadow="dark-lg" placeholder="Search Category" onChange={(e) => { setsearchterm(e.target.value) }} />
+            </InputGroup>
+            {/* Display list on being searched */}
             <Flex direction={["column", "row"]} spacing="96px" justify="center" wrap="wrap" w="100%" >
-                {ListData.map((item, key) => {
-                    return <Box boxSize="200px" m={16} key={key} bgImage={item.imageurl} shadow="dark-lg" textAlign="center">
-                        <Link to={`/singlequote/${item.category}`}><Button mt="70%" variant="solid" size="md" colorScheme="gray" fontWeight="bold" letterSpacing="wider">{item.main}</Button></Link></Box>
+                {ListData.filter((val) => {
+                    if (searchterm === "")
+                        return val
+                    else if (val.main.toLowerCase().includes(searchterm.toLowerCase()))
+                        return val
+                    else
+                    return
+                }).map((val, key) => {
+                    return <Box boxSize="200px" m={16} key={key} bgImage={val.imageurl} shadow="dark-lg" textAlign="center">
+                        <Link to={`/singlequote/${val.category}`}><Button mt="70%" variant="solid" size="md" colorScheme="gray" fontWeight="bold" letterSpacing="wider">{val.main}</Button></Link></Box>
                 })}
             </Flex>
-        </div>
+        </>
     )
 }
 
-export default CategoryList
+export default Categorylist

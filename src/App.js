@@ -9,7 +9,7 @@ import Footer from "./Components/Footer";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar style />
+      <Navbar />
       <Switch>
         <Route exact path="/">
           <Home />
