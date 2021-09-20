@@ -1,6 +1,6 @@
 import { useColorModeValue, VStack } from '@chakra-ui/react'
 import React from 'react'
-import Categorylist from '../Components/Categorylist'
+import CategoryList from '../Components/CategoryList'
 import Front from '../Components/Front'
 import '../style.css'
 
@@ -10,10 +10,9 @@ function Home() {
         <div className={homebgtoggle}>
             <VStack justify="center" >
                 <Front />
-                <Categorylist />
+                <CategoryList />
             </VStack>
         </div>
     )
 }
-
 export default Home

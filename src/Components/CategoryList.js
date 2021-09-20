@@ -4,7 +4,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import { ListData } from './ListData'
 import { Link } from 'react-router-dom'
 
-function Categorylist() {
+function CategoryList() {
     const [searchterm, setsearchterm] = useState("");
     return (
         <>
@@ -35,4 +35,4 @@ function Categorylist() {
     )
 }
 
-export default Categorylist
+export default CategoryList
