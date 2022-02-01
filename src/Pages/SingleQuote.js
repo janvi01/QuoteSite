@@ -2,6 +2,7 @@ import { Box, Stack, IconButton, Spacer, VStack, Spinner, Flex, useColorModeValu
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { FaTwitter } from 'react-icons/fa'
+import { BiLike } from 'react-icons/bi'
 
 function SingleQuote(props) {
     const homebgtoggle = useColorModeValue("home", "homeothermode")
@@ -18,6 +19,12 @@ function SingleQuote(props) {
                 setloading(true);
             });
     })
+    const [bookmarks, setbookmarks] = useState([]);
+    const add = async (text) => {
+        setbookmarks([text, ...bookmarks]);
+        console.log(bookmarks);
+    }
+
     return (
         <div>
             {loading ? (
@@ -30,6 +37,7 @@ function SingleQuote(props) {
                                     <Spacer />
                                     <HStack >
                                         <Box pr={2} fontStyle="italic" color="black">~{item.author}</Box>
+                                        <IconButton icon={<BiLike />} colorScheme="twitter" onClick={() => add(item.content)}></IconButton>
                                         <a className="twitter-share-button"
                                             href={`https://twitter.com/intent/tweet?text=${item.content}+~+${item.author}`}>
                                             <IconButton icon={<FaTwitter />} colorScheme="twitter"></IconButton></a></HStack>
