@@ -4,14 +4,27 @@ import {
   useColorMode,
   useColorModeValue,
   Text,
+  Button,
 } from "@chakra-ui/react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsMoon, BsSun } from "react-icons/bs";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
+import { BsFillHeartFill } from "react-icons/bs";
 
-function Navbar() {
+function Navbar(props) {
   const { toggleColorMode } = useColorMode();
-  const navtoggle = useColorModeValue("togglehover", "navhover");
+  const navigate = useNavigate();
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.mesage);
+      });
+  };
   return (
     <div
       style={{
@@ -28,34 +41,44 @@ function Navbar() {
         pl={[4, 4, 10]}
         p={7}
         borderBottomWidth="thin"
+        className="sanstext"
       >
-        <HStack>
-          <Text backgroundColor="black" color="white">
-            QS
-          </Text>
-          <Link to="/" className={navtoggle}>
-            QuoteSite
-          </Link>
-        </HStack>
+        <Link to="/">
+          <HStack>
+            <Text color="teal" fontWeight="extrabold" fontSize="2xl">
+              "Quote"
+            </Text>
+            <Text fontWeight="bold" fontSize="2xl">
+              Site
+            </Text>
+          </HStack>
+        </Link>
         <HStack spacing="24px">
-          <Link to="/" className={navtoggle}>
-            Home
-          </Link>
-          <Link to="/categories" className={navtoggle}>
-            Categories
-          </Link>
-          <Link to="/about" className={navtoggle}>
-            About
-          </Link>
-          <Link to="/" className={navtoggle}>
-            Quote of the Day
-          </Link>
-          <Link to="/login" className={navtoggle}>
-            Login/Signup
-          </Link>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/categories">Categories</Link>
+        </HStack>
+        <HStack>
+          {!props.name ? (
+            <Link to="/signup">
+              <Button colorScheme="teal">Login/Signup</Button>
+            </Link>
+          ) : (
+            <>
+              <Link to="/liked">
+                <IconButton
+                  icon={<BsFillHeartFill />}
+                  colorScheme="pink"
+                ></IconButton>
+              </Link>
+              <Button colorScheme="teal" onClick={logout}>
+                Logout
+              </Button>
+            </>
+          )}
           <IconButton
-            icon={useColorModeValue(<BsSun />, <BsMoon />)}
-            colorScheme={useColorModeValue("cyan", "teal")}
+            icon={useColorModeValue(<BsMoon />, <BsSun />)}
+            colorScheme="teal"
             onClick={toggleColorMode}
           ></IconButton>
         </HStack>
