@@ -36,8 +36,16 @@ function Front(props) {
             <br />
             <br />
             <Link to="/categories">
-              <Button size="lg" colorScheme="teal" variant="solid">
-                Get Started
+              <Button
+                rounded={"full"}
+                size={"lg"}
+                fontWeight={"normal"}
+                px={6}
+                colorScheme={"red"}
+                bg={"teal"}
+                _hover={{ bg: "teal.400" }}
+              >
+                Login
               </Button>
             </Link>
           </Heading>

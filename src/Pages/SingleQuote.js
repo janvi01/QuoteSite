@@ -13,10 +13,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaTwitter } from "react-icons/fa";
 import { BsFillHeartFill } from "react-icons/bs";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
-function SingleQuote(props) {
+function SingleQuote({ user, quotelist }) {
   const homebgtoggle = useColorModeValue("home", "homeothermode");
-
+  const [text, settext] = useState("");
   const [loading, setloading] = useState(false);
   const [quotes, setquotes] = useState([]);
   const { cat } = useParams();
@@ -28,11 +30,19 @@ function SingleQuote(props) {
         setquotes(data.results);
         setloading(true);
       });
-  });
-  const [bookmarks, setbookmarks] = useState([]);
-  const add = async (text) => {
-    setbookmarks([text, ...bookmarks]);
-    console.log(bookmarks);
+  }, [cat]);
+
+  const addQuotes = async (text) => {
+    if (user) {
+      await setDoc(doc(db, "quotes", user.uid), {
+        quotes: [...quotelist, text],
+      });
+      console.log(quotes);
+      console.log(text);
+      settext("");
+    } else {
+      alert("Please login first");
+    }
   };
 
   return (
@@ -61,7 +71,10 @@ function SingleQuote(props) {
                     <IconButton
                       icon={<BsFillHeartFill />}
                       colorScheme="pink"
-                      onClick={() => add(item.content)}
+                      onClick={() => {
+                        settext(quotes[key]);
+                        addQuotes(text);
+                      }}
                     ></IconButton>
                     <a
                       className="twitter-share-button"
